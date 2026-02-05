@@ -2,95 +2,132 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Valentine's Day Romantic Design System
+   Soft rose pinks, warm creams, deep crimson accents
+   All colors MUST be HSL.
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Quicksand:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Romantic color palette */
+    --background: 20 50% 98%;
+    --foreground: 350 30% 20%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 20 40% 97%;
+    --card-foreground: 350 30% 20%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 20 40% 97%;
+    --popover-foreground: 350 30% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep rose - primary action color */
+    --primary: 346 77% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft blush - secondary elements */
+    --secondary: 350 60% 92%;
+    --secondary-foreground: 350 30% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 20 30% 94%;
+    --muted-foreground: 350 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Warm coral accent */
+    --accent: 10 70% 65%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 350 30% 88%;
+    --input: 350 30% 88%;
+    --ring: 346 77% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Valentine custom tokens */
+    --rose: 346 77% 50%;
+    --rose-light: 350 70% 75%;
+    --rose-glow: 346 77% 60%;
+    --crimson: 348 83% 40%;
+    --blush: 350 60% 92%;
+    --cream: 30 60% 96%;
+    --gold: 45 90% 55%;
+    
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(350 70% 75%) 0%, hsl(346 77% 60%) 50%, hsl(348 83% 50%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(20 50% 98%) 0%, hsl(350 60% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(350 60% 97%) 100%);
+    
+    /* Shadows */
+    --shadow-romantic: 0 10px 40px -10px hsl(346 77% 50% / 0.25);
+    --shadow-soft: 0 4px 20px -4px hsl(350 30% 50% / 0.15);
+    --shadow-glow: 0 0 30px hsl(346 77% 60% / 0.4);
+    
+    --sidebar-background: 20 50% 98%;
+    --sidebar-foreground: 350 30% 20%;
+    --sidebar-primary: 346 77% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 350 60% 92%;
+    --sidebar-accent-foreground: 350 30% 25%;
+    --sidebar-border: 350 30% 88%;
+    --sidebar-ring: 346 77% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - deep romantic night theme */
+    --background: 350 30% 8%;
+    --foreground: 20 40% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 350 25% 12%;
+    --card-foreground: 20 40% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 350 25% 12%;
+    --popover-foreground: 20 40% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 346 70% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 350 40% 20%;
+    --secondary-foreground: 20 40% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 350 25% 18%;
+    --muted-foreground: 350 20% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 10 60% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 350 25% 20%;
+    --input: 350 25% 20%;
+    --ring: 346 70% 55%;
+    
+    --rose: 346 70% 55%;
+    --rose-light: 350 50% 45%;
+    --rose-glow: 346 70% 60%;
+    --crimson: 348 70% 35%;
+    --blush: 350 40% 20%;
+    --cream: 30 30% 15%;
+    --gold: 45 80% 50%;
+    
+    --gradient-romantic: linear-gradient(135deg, hsl(350 50% 35%) 0%, hsl(346 70% 45%) 50%, hsl(348 70% 40%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(350 30% 8%) 0%, hsl(350 35% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(350 25% 14%) 0%, hsl(350 30% 10%) 100%);
+    
+    --shadow-romantic: 0 10px 40px -10px hsl(346 70% 30% / 0.5);
+    --shadow-soft: 0 4px 20px -4px hsl(350 30% 20% / 0.3);
+    --shadow-glow: 0 0 30px hsl(346 70% 50% / 0.3);
+    
+    --sidebar-background: 350 30% 8%;
+    --sidebar-foreground: 20 40% 95%;
+    --sidebar-primary: 346 70% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 350 40% 20%;
+    --sidebar-accent-foreground: 20 40% 95%;
+    --sidebar-border: 350 25% 20%;
+    --sidebar-ring: 346 70% 55%;
   }
 }
 
@@ -100,6 +137,85 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .valentine-card {
+    @apply rounded-2xl p-8 relative overflow-hidden;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-romantic);
+  }
+  
+  .btn-romantic {
+    @apply px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300;
+    background: var(--gradient-romantic);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-romantic:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .floating-hearts {
+    position: fixed;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .heart-float {
+    position: absolute;
+    animation: float-up 6s ease-in infinite;
+    opacity: 0;
+  }
+  
+  @keyframes float-up {
+    0% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(0deg) scale(0);
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20vh) rotate(720deg) scale(1);
+    }
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: var(--shadow-soft);
+    }
+    50% {
+      box-shadow: var(--shadow-glow);
+    }
   }
 }
