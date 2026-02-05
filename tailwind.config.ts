@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Quicksand', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,15 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        rose: {
+          DEFAULT: "hsl(var(--rose))",
+          light: "hsl(var(--rose-light))",
+          glow: "hsl(var(--rose-glow))",
+        },
+        crimson: "hsl(var(--crimson))",
+        blush: "hsl(var(--blush))",
+        cream: "hsl(var(--cream))",
+        gold: "hsl(var(--gold))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +93,37 @@ export default {
             height: "0",
           },
         },
+        "dodge": {
+          "0%": { transform: "translate(0, 0)" },
+          "100%": { transform: "translate(var(--dodge-x, 100px), var(--dodge-y, 0))" },
+        },
+        "heart-beat": {
+          "0%, 100%": { transform: "scale(1)" },
+          "25%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1)" },
+          "75%": { transform: "scale(1.2)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
+        "scale-up": {
+          "0%": { transform: "scale(0)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "dodge": "dodge 0.2s ease-out forwards",
+        "heart-beat": "heart-beat 1s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "wiggle": "wiggle 0.5s ease-in-out infinite",
+        "scale-up": "scale-up 0.5s ease-out forwards",
       },
     },
   },
