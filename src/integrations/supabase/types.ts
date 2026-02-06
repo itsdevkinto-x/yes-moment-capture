@@ -18,6 +18,9 @@ export type Database = {
         Row: {
           begging_messages: string[]
           created_at: string
+          creator_email: string | null
+          custom_decoration_url: string | null
+          decoration_type: string
           final_message: string
           id: string
           question: string
@@ -29,6 +32,9 @@ export type Database = {
         Insert: {
           begging_messages?: string[]
           created_at?: string
+          creator_email?: string | null
+          custom_decoration_url?: string | null
+          decoration_type?: string
           final_message?: string
           id: string
           question?: string
@@ -40,6 +46,9 @@ export type Database = {
         Update: {
           begging_messages?: string[]
           created_at?: string
+          creator_email?: string | null
+          custom_decoration_url?: string | null
+          decoration_type?: string
           final_message?: string
           id?: string
           question?: string
