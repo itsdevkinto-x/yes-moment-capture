@@ -19,6 +19,7 @@ interface ValentineData {
   socialLabel: string;
   socialLink: string;
   senderName: string;
+  receiverName: string;
   creatorEmail: string;
   theme: string;
   decorationType: DecorationType;
@@ -42,6 +43,7 @@ const ValentineCreator = () => {
     socialLabel: "Message me on Instagram",
     socialLink: "",
     senderName: "",
+    receiverName: "",
     creatorEmail: "",
     theme: "romantic",
     decorationType: "hearts",
@@ -93,6 +95,7 @@ const ValentineCreator = () => {
         social_label: formData.socialLabel || null,
         social_link: formData.socialLink || null,
         sender_name: formData.senderName,
+        receiver_name: formData.receiverName || null,
         creator_email: formData.creatorEmail || null,
         theme: formData.theme,
         decoration_type: formData.decorationType,
@@ -144,6 +147,7 @@ const ValentineCreator = () => {
       socialLabel: "Message me on Instagram",
       socialLink: "",
       senderName: "",
+      receiverName: "",
       creatorEmail: "",
       theme: "romantic",
       decorationType: "hearts",
@@ -216,6 +220,25 @@ const ValentineCreator = () => {
             placeholder="Enter your name"
             className="mt-2 bg-background border-border"
           />
+        </div>
+
+        {/* Receiver Name */}
+        <div>
+          <Label htmlFor="receiverName" className="text-foreground font-medium">
+            Their Name (Optional)
+          </Label>
+          <Input
+            id="receiverName"
+            value={formData.receiverName}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, receiverName: e.target.value }))
+            }
+            placeholder="Enter their name"
+            className="mt-2 bg-background border-border"
+          />
+          <p className="text-xs text-muted-foreground mt-1">
+            Used in the card and email notification
+          </p>
         </div>
 
         {/* Creator Email for notifications */}

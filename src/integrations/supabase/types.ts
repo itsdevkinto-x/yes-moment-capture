@@ -24,6 +24,7 @@ export type Database = {
           final_message: string
           id: string
           question: string
+          receiver_name: string | null
           sender_name: string | null
           social_label: string | null
           social_link: string | null
@@ -38,6 +39,7 @@ export type Database = {
           final_message?: string
           id: string
           question?: string
+          receiver_name?: string | null
           sender_name?: string | null
           social_label?: string | null
           social_link?: string | null
@@ -52,6 +54,7 @@ export type Database = {
           final_message?: string
           id?: string
           question?: string
+          receiver_name?: string | null
           sender_name?: string | null
           social_label?: string | null
           social_link?: string | null

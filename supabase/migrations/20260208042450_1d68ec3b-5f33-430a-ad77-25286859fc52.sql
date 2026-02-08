@@ -1,0 +1,1 @@
+ALTER TABLE public.valentine_pages ADD COLUMN receiver_name text DEFAULT NULL;
