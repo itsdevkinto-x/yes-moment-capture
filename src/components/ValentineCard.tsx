@@ -15,6 +15,7 @@ interface ValentineCardProps {
   socialLabel: string | null;
   socialLink: string | null;
   senderName: string | null;
+  receiverName: string | null;
   alreadyAccepted?: boolean;
   existingScreenshotUrl?: string | null;
   theme?: string;
@@ -29,6 +30,7 @@ const ValentineCard = ({
   socialLabel,
   socialLink,
   senderName,
+  receiverName,
   alreadyAccepted = false,
   existingScreenshotUrl = null,
   theme = "romantic",
@@ -179,7 +181,7 @@ const ValentineCard = ({
     async (uploadedUrl: string | null) => {
       try {
         const { error } = await supabase.functions.invoke("notify-yes", {
-          body: { pageId, screenshotUrl: uploadedUrl },
+          body: { pageId, screenshotUrl: uploadedUrl, receiverName },
         });
         if (error) {
           console.error("Notification error:", error);
@@ -188,7 +190,7 @@ const ValentineCard = ({
         console.error("Failed to notify creator:", error);
       }
     },
-    [pageId]
+    [pageId, receiverName]
   );
 
   const handleYesClick = useCallback(async () => {
@@ -283,10 +285,12 @@ const ValentineCard = ({
               exit={{ opacity: 0, scale: 0.8 }}
               className="space-y-6"
             >
-              {/* Sender */}
-              {senderName && (
+              {/* Sender & Receiver */}
+              {(senderName || receiverName) && (
                 <p className="text-white/80 text-sm">
-                  From <span className="font-semibold text-white">{senderName}</span>
+                  {senderName && <>From <span className="font-semibold text-white">{senderName}</span></>}
+                  {senderName && receiverName && " · "}
+                  {receiverName && <>To <span className="font-semibold text-white">{receiverName}</span></>}
                 </p>
               )}
 

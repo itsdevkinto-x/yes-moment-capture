@@ -15,6 +15,7 @@ interface PageData {
   social_label: string | null;
   social_link: string | null;
   sender_name: string | null;
+  receiver_name: string | null;
   theme: string;
   decoration_type: string;
   custom_decoration_url: string | null;
@@ -142,6 +143,7 @@ const Valentine = () => {
           socialLabel={pageData.social_label}
           socialLink={pageData.social_link}
           senderName={pageData.sender_name}
+          receiverName={pageData.receiver_name}
           alreadyAccepted={!!yesEvent}
           existingScreenshotUrl={yesEvent?.screenshot_url}
           theme={pageData.theme}

@@ -10,6 +10,7 @@ const corsHeaders = {
 interface NotifyRequest {
   pageId: string;
   screenshotUrl?: string | null;
+  receiverName?: string | null;
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -18,7 +19,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { pageId, screenshotUrl }: NotifyRequest = await req.json();
+    const { pageId, screenshotUrl, receiverName }: NotifyRequest = await req.json();
 
     if (!pageId) {
       return new Response(
@@ -70,6 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
       hour12: true,
     });
 
+    const displayName = receiverName || page.receiver_name || "Someone";
     const screenshotSection = screenshotUrl
       ? `<p style="margin: 20px 0;"><a href="${screenshotUrl}" style="background: #ec4899; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block;">📸 View Screenshot</a></p>`
       : "";
@@ -85,11 +87,11 @@ const handler = async (req: Request): Promise<Response> => {
         <div style="max-width: 500px; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 10px 40px rgba(236, 72, 153, 0.15);">
           <div style="text-align: center;">
             <div style="font-size: 64px; margin-bottom: 20px;">🎉💖🎉</div>
-            <h1 style="color: #db2777; font-size: 28px; margin: 0 0 10px;">THEY SAID YES!</h1>
+            <h1 style="color: #db2777; font-size: 28px; margin: 0 0 10px;">${displayName} SAID YES!</h1>
             <p style="color: #6b7280; font-size: 14px; margin: 0 0 30px;">${timestamp}</p>
             <div style="background: linear-gradient(135deg, #fce7f3, #fbcfe8); padding: 24px; border-radius: 12px; margin: 20px 0;">
               <p style="color: #831843; font-size: 18px; margin: 0; font-weight: 500;">Your Valentine card worked! 💕</p>
-              <p style="color: #9d174d; font-size: 14px; margin: 10px 0 0;">Someone special clicked "Yes" on your Valentine</p>
+              <p style="color: #9d174d; font-size: 14px; margin: 10px 0 0;">${displayName} clicked "Yes" on your Valentine</p>
             </div>
             ${screenshotSection}
             <p style="color: #9ca3af; font-size: 12px; margin-top: 30px;">Made with 💖 using Valentine Creator</p>
@@ -105,7 +107,7 @@ const handler = async (req: Request): Promise<Response> => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         to: page.creator_email,
-        subject: "🎉 They said YES to your Valentine! 💕",
+        subject: `🎉 ${displayName} said YES to your Valentine! 💕`,
         html: htmlBody,
       }),
     });
