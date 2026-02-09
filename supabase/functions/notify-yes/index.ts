@@ -86,7 +86,15 @@ const handler = async (req: Request): Promise<Response> => {
       <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fdf2f8; padding: 40px 20px; margin: 0;">
         <div style="max-width: 500px; margin: 0 auto; background: white; border-radius: 16px; padding: 40px; box-shadow: 0 10px 40px rgba(236, 72, 153, 0.15);">
           <div style="text-align: center;">
-            <div style="font-size: 64px; margin-bottom: 20px;">🎉💖🎉</div>
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img
+              src="https://media.tenor.com/mRYP23WO1DYAAAAm/ok.webp"
+              width="150"
+              height="150"
+              alt="Celebration!"
+              style="display: block; margin: 0 auto;"
+            />
+          </div>
             <h1 style="color: #db2777; font-size: 28px; margin: 0 0 10px;">${displayName} SAID YES!</h1>
             <p style="color: #6b7280; font-size: 14px; margin: 0 0 30px;">${timestamp}</p>
             <div style="background: linear-gradient(135deg, #fce7f3, #fbcfe8); padding: 24px; border-radius: 12px; margin: 20px 0;">
