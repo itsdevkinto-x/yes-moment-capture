@@ -64,6 +64,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const timestamp = new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Manila",
       month: "short",
       day: "numeric",
       hour: "numeric",
