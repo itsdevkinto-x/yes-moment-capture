@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Heart, Sparkles } from "lucide-react";
 import ValentineCreator from "@/components/ValentineCreator";
-import FloatingHearts from "@/components/FloatingHearts";
+import FloatingDecorations from "@/components/FloatingDecorations";
 
 const Index = () => {
   return (
     <div className="min-h-screen py-12 px-4 bg-background overflow-hidden relative">
-      <FloatingHearts />
+      <FloatingDecorations decorationType="hearts" />
       
       {/* Header */}
       <motion.div
