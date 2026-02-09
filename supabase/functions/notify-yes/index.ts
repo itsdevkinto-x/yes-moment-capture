@@ -88,11 +88,12 @@ const handler = async (req: Request): Promise<Response> => {
           <div style="text-align: center;">
           <div style="text-align: center; margin-bottom: 20px;">
             <img
-              src="https://media.tenor.com/mRYP23WO1DYAAAAm/ok.webp"
+              src="https://i.imgur.com/dlTAj6F.gif"
               width="150"
               height="150"
               alt="Celebration!"
               style="display: block; margin: 0 auto;"
+              loading="eager"
             />
           </div>
             <h1 style="color: #db2777; font-size: 28px; margin: 0 0 10px;">${displayName} SAID YES!</h1>
